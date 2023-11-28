@@ -34,8 +34,19 @@ class Bored:
         Returns:
             dict: activity data
         '''
-        pass
+        endpoint = "activity"
+        url = self.url + endpoint
+        
+        p = {
+            "type" : type
+        }
 
+        response = requests.get(url, params=p)
+
+        if response.status_code == 200:
+            return response.json()
+
+        
     def get_activity_by_id(self, key: int) -> dict:
         '''get activity by key
 
@@ -48,7 +59,16 @@ class Bored:
         Returns:
             dict: activity data
         '''
-        pass
+        endpoint = "activity"
+        url = self.url + endpoint
+        p = {
+            "key": key
+        }
+        response = requests.get(url, params=p)
+
+        if response.status_code == 200:
+            return response.json()
+
 
     def get_activity_by_accessibility(self, accessibility: float) -> dict:
         '''get activity by accessibility
@@ -63,7 +83,17 @@ class Bored:
         Returns:
             dict: activity data
         '''
-        pass
+        endpoint = "activity"
+        url = self.url + endpoint
+
+        p = {
+            "accessibility" : accessibility
+        }
+
+        response = requests.get(url, params=p)
+
+        if response.status_code == 200:
+            return response.json()
 
     def get_activity_by_price(self, price: float) -> dict:
         '''get activity by price
@@ -78,7 +108,18 @@ class Bored:
         Returns:
             dict: activity data
         '''
-        pass
+        endpoint = "activity"
+        url = self.url + endpoint
+
+        p = {
+            "price" : price
+        }
+
+        response = requests.get(url, params=p)
+
+        if response.status_code == 200:
+            return response.json()
+
 
     def get_activity_by_price_range(self, minprice: float, maxprice: float) -> dict:
         '''get activity by price
@@ -94,4 +135,15 @@ class Bored:
         Returns:
             dict: activity data
         '''
-        pass
+        endpoint = "activity"
+        url = self.url + endpoint
+
+        p = {
+            "minprice" : minprice ,
+            "maxprice" : maxprice
+        }
+
+        response = requests.get(url, params=p)
+
+        if response.status_code == 200:
+            return response.json()
